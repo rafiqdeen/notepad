@@ -1,2 +1,32 @@
-<h1>Hello, Rails!</h1>
-<%= link_to 'All Articles', controller: 'articles' %>
+
+<header class="intro-header" style="background-image: url('https://i.imgur.com/5R2VDkH.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-heading">
+          <h1>Clean Notepad</h1>
+          <hr class="small">
+          <span class="subheading">Discover what a new kind of note can do for you.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h1>Hello, Rails! This is my Rails Application</h1>
+      <hr>
+      <!-- Pager -->
+      <ul class="pager">
+        <li class="center">
+          <%= link_to 'Create', new_article_path %>
+          <%= link_to 'All Articles', controller: 'articles' %>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+

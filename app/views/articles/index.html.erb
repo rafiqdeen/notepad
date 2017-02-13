@@ -1,20 +1,45 @@
-<h1>Listing articles</h1>
+<html lang="en">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
+<body>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h1>Listing articles</h1>
+      <hr>
 
-  <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.text %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article_path(article),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-</table>
+      <% @articles.each do |article| %>
+          <div class="post-preview">
+            <a href="#">
+              <h2 class="post-title">
+                <%= article.title %>
+              </h2>
+              <h3 class="post-subtitle">
+                <%= article.text %>
+              </h3>
+            </a>
+            <p class="post-meta">Posted by <a href="#">Rafiq</a> <%= article.created_at %></p>
+            <ul class="pager">
+              <li class="next">
+                <%= link_to 'Destroy', article_path(article),
+                            method: :delete,
+                            data: {confirm: 'Are you sure?'} %>
+                <%= link_to 'Show', article_path(article) %>
+                <%= link_to 'Edit', edit_article_path(article) %>
+              </li>
+            </ul>
+          </div>
+          <hr>
+      <% end %>
+      <!-- Pager -->
+      <ul class="pager">
+        <li class="next">
+          <a href="#">Older Posts &rarr;</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

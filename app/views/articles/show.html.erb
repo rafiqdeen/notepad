@@ -1,11 +1,30 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<html lang="en">
+<body>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h1><%= @article.title %></h1>
+      <hr>
+      <div class="post-preview">
+        <h3 class="post-subtitle">
+          <i><%= @article.text %></i>
+        </h3>
+        <ul class="pager">
+          <li class="next">
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <!-- Pager -->
+      <ul class="pager">
+        <li class="next">
+          <%= link_to 'Back', articles_path  %>
+        </li>
+      </ul>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-
-<%= link_to 'Back', articles_path %>
+    </div>
+  </div>
+</div>
+</body>
+</html>
