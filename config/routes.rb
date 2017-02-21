@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'sessions/new'
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -9,6 +13,20 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'home/about' => 'home#about'
+
+  Rails.application.routes.draw do
+  get 'users/new'
+
+    get    '/help',    to: 'static_pages#help'
+    get    '/about',   to: 'static_pages#about'
+    get    '/contact', to: 'static_pages#contact'
+    get    '/signup',  to: 'users#new'
+    post   '/signup',  to: 'users#create'
+    get    '/login',   to: 'sessions#new'
+    post   '/login',   to: 'sessions#create'
+    delete '/logout',  to: 'sessions#destroy'
+    resources :users
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
