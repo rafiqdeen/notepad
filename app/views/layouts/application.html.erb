@@ -26,10 +26,10 @@
 <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
 <% end %>
-<!-- Naviga tion -->
+
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+
     <div class="navbar-header page-scroll">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -38,7 +38,7 @@
       <a class="navbar-brand" href="#">Clean Notepad</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -50,17 +50,19 @@
         <li>
           <a href="#">Sample Post</a>
         </li>
-        <li>
-          <%= link_to "Sign out", logout_path, :method => :delete %>
-        </li>
-        <li>
-          <%= link_to "SignIn", login_path %>
-        </li>
+        <% if signed_in? %>
+            <li><%= link_to "Users", '#' %></li>
+            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+
+           <li> <%= link_to "Sign out", logout_path, :method => :delete %> </li>
+        <% else %>
+            <li>
+              <%= link_to "SignIn", login_path %>
+            </li>
+        <% end %>
       </ul>
     </div>
-    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container -->
 </nav>
 
 <%= yield %>

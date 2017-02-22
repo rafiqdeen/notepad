@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
 
   def login_user(user)
     session[:user_id] = user.id
-    redirect_to root_path, notice: 'Logged In successfully'
+    redirect_to root_path
   end
 end
