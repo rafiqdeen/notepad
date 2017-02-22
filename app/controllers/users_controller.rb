@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
-      sign_in (@user)
+      # sign_in (@user)
       flash[:success] = "Welcome to the Clean Note App"
-      redirect_to root_path
+      redirect_to @user
     else
       render 'new'
     end
