@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  # resources :articles
+  resources :users
+  resources :sessions,   only: [:new, :create, :destroy]
   resources :articles
   root 'home#index'
 
@@ -27,6 +30,8 @@ Rails.application.routes.draw do
     delete '/signout',  to: 'sessions#destroy'
     resources :users
   end
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -5,6 +5,20 @@
   <div class="well">
 
     <%= form_for :article, url: articles_path do |f| %>
+        <% if @article.errors.any? %>
+            <div id="error_explanation">
+              <h3>
+                <%= pluralize(@article.errors.count, "error") %> prohibited
+                this article from being saved:
+              </h3>
+              <ul>
+                <% @article.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
         <p>
           <%= f.label "Enter your title" %><br>
           <%= f.text_field :title, :class => "form-control" %>
