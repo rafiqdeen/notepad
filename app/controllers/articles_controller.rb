@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = current_user.articles
   end
 
   def create
